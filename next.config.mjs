@@ -152,6 +152,9 @@ const withBundleAnalyzer = process.env.ANALYZE === 'true' ? analyzer() : noWrapp
 const withPWA = isProd
   ? nextPWA({
       dest: 'public',
+      publicExcludes:[
+        '!screenshots/**/*'
+      ],
       register: true,
       workboxOptions: {
         skipWaiting: true,
