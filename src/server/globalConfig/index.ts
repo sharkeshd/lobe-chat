@@ -92,6 +92,8 @@ export const getServerGlobalConfig = () => {
 
     ENABLED_FIREWORKSAI,
     FIREWORKSAI_MODEL_LIST,
+
+    ENABLED_WENXIN,
   } = getLLMConfig();
 
   const config: GlobalServerConfig = {
@@ -242,6 +244,7 @@ export const getServerGlobalConfig = () => {
           modelString: ZHIPU_MODEL_LIST,
         }),
       },
+      wenxin: { enabled: ENABLED_WENXIN },
     },
     oAuthSSOProviders: authEnv.NEXT_AUTH_SSO_PROVIDERS.trim().split(/[,，]/),
     systemAgent: parseSystemAgent(appEnv.SYSTEM_AGENT),
