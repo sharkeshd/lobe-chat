@@ -6,8 +6,8 @@ import { BRANDING_LOGO_URL, BRANDING_NAME } from '@/const/branding';
 import { translation } from '@/server/translation';
 import { getCanonicalUrl } from '@/server/utils/url';
 
-const genImage = (url: string, version: number = 1) =>
-  BRANDING_LOGO_URL || qs.stringifyUrl({ query: { v: version }, url });
+const getImage = (url: string, version: number = 1) =>
+  qs.stringifyUrl({ query: { v: version }, url: BRANDING_LOGO_URL || url });
 
 const manifest = async (): Promise<MetadataRoute.Manifest | any> => {
   const { t } = await translation('metadata');
@@ -30,7 +30,7 @@ const manifest = async (): Promise<MetadataRoute.Manifest | any> => {
         max_age: 31_536_000,
         purpose: 'any',
         sizes: '192x192',
-        src: genImage('/icons/icon-192x192.png', 1),
+        src: getImage('/icons/icon-192x192.png', 1),
         type: 'image/png',
       },
       {
@@ -39,7 +39,7 @@ const manifest = async (): Promise<MetadataRoute.Manifest | any> => {
         max_age: 31_536_000,
         purpose: 'maskable',
         sizes: '192x192',
-        src: genImage('/icons/icon-192x192.maskable.png', 1),
+        src: getImage('/icons/icon-192x192.maskable.png', 1),
         type: 'image/png',
       },
       {
@@ -48,7 +48,7 @@ const manifest = async (): Promise<MetadataRoute.Manifest | any> => {
         max_age: 31_536_000,
         purpose: 'any',
         sizes: '512x512',
-        src: genImage('/icons/icon-512x512.png', 1),
+        src: getImage('/icons/icon-512x512.png', 1),
         type: 'image/png',
       },
       {
@@ -57,7 +57,7 @@ const manifest = async (): Promise<MetadataRoute.Manifest | any> => {
         max_age: 31_536_000,
         purpose: 'maskable',
         sizes: '512x512',
-        src: genImage('/icons/icon-512x512.maskable.png', 1),
+        src: getImage('/icons/icon-512x512.maskable.png', 1),
         type: 'image/png',
       },
     ],
@@ -85,7 +85,7 @@ const manifest = async (): Promise<MetadataRoute.Manifest | any> => {
             immutable: 'true',
             max_age: 31_536_000,
             sizes: '640x1138',
-            src: genImage('/screenshots/shot-1.mobile.png', 1),
+            src: getImage('/screenshots/shot-1.mobile.png', 1),
             type: 'image/png',
           },
           {
@@ -94,7 +94,7 @@ const manifest = async (): Promise<MetadataRoute.Manifest | any> => {
             immutable: 'true',
             max_age: 31_536_000,
             sizes: '640x1138',
-            src: genImage('/screenshots/shot-2.mobile.png', 1),
+            src: getImage('/screenshots/shot-2.mobile.png', 1),
             type: 'image/png',
           },
           {
@@ -103,7 +103,7 @@ const manifest = async (): Promise<MetadataRoute.Manifest | any> => {
             immutable: 'true',
             max_age: 31_536_000,
             sizes: '640x1138',
-            src: genImage('/screenshots/shot-3.mobile.png', 1),
+            src: getImage('/screenshots/shot-3.mobile.png', 1),
             type: 'image/png',
           },
           {
@@ -112,7 +112,7 @@ const manifest = async (): Promise<MetadataRoute.Manifest | any> => {
             immutable: 'true',
             max_age: 31_536_000,
             sizes: '640x1138',
-            src: genImage('/screenshots/shot-4.mobile.png', 1),
+            src: getImage('/screenshots/shot-4.mobile.png', 1),
             type: 'image/png',
           },
           {
@@ -121,7 +121,7 @@ const manifest = async (): Promise<MetadataRoute.Manifest | any> => {
             immutable: 'true',
             max_age: 31_536_000,
             sizes: '640x1138',
-            src: genImage('/screenshots/shot-5.mobile.png', 1),
+            src: getImage('/screenshots/shot-5.mobile.png', 1),
             type: 'image/png',
           },
           {
@@ -130,7 +130,7 @@ const manifest = async (): Promise<MetadataRoute.Manifest | any> => {
             immutable: 'true',
             max_age: 31_536_000,
             sizes: '1280x676',
-            src: genImage('/screenshots/shot-1.desktop.png', 1),
+            src: getImage('/screenshots/shot-1.desktop.png', 1),
             type: 'image/png',
           },
           {
@@ -139,7 +139,7 @@ const manifest = async (): Promise<MetadataRoute.Manifest | any> => {
             immutable: 'true',
             max_age: 31_536_000,
             sizes: '1280x676',
-            src: genImage('/screenshots/shot-2.desktop.png', 1),
+            src: getImage('/screenshots/shot-2.desktop.png', 1),
             type: 'image/png',
           },
           {
@@ -148,7 +148,7 @@ const manifest = async (): Promise<MetadataRoute.Manifest | any> => {
             immutable: 'true',
             max_age: 31_536_000,
             sizes: '1280x676',
-            src: genImage('/screenshots/shot-3.desktop.png', 1),
+            src: getImage('/screenshots/shot-3.desktop.png', 1),
             type: 'image/png',
           },
           {
@@ -157,7 +157,7 @@ const manifest = async (): Promise<MetadataRoute.Manifest | any> => {
             immutable: 'true',
             max_age: 31_536_000,
             sizes: '1280x676',
-            src: genImage('/screenshots/shot-4.desktop.png', 1),
+            src: getImage('/screenshots/shot-4.desktop.png', 1),
             type: 'image/png',
           },
           {
@@ -166,7 +166,7 @@ const manifest = async (): Promise<MetadataRoute.Manifest | any> => {
             immutable: 'true',
             max_age: 31_536_000,
             sizes: '1280x676',
-            src: genImage('/screenshots/shot-5.desktop.png', 1),
+            src: getImage('/screenshots/shot-5.desktop.png', 1),
             type: 'image/png',
           },
         ],
